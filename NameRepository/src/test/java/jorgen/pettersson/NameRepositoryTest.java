@@ -65,13 +65,8 @@ public class NameRepositoryTest
     public void remove(){
 
         String name = "Lars Jonsson";
-
-        String [] testArray = NameRepository.findAll();
-
         boolean result = NameRepository.remove(name);
-
-         testArray = NameRepository.findAll();
-
+        
         assertEquals(true, result);
     }
 

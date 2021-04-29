@@ -38,8 +38,8 @@ public class Time
     public static void exercise2(){
 
         LocalDate date = LocalDate.now().plusDays(1).minusMonths(1);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E dd MMM ");
-        String text = date.format(formatter);
+        DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("E dd MMM ");
+        String text = date.format(formatDate);
         System.out.println("\n" + text);
     }
 
@@ -48,8 +48,8 @@ public class Time
         System.out.println("\n");
         for( int i = 0; i < 7; i++){
             LocalDate date = LocalDate.of(2021,04,26).plusDays(i);
-            DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE;
-            String text = date.format(formatter);
+            DateTimeFormatter formatDate = DateTimeFormatter.ISO_DATE;
+            String text = date.format(formatDate);
 
             System.out.println(text);
         }

@@ -1,9 +1,7 @@
 package org.example;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
+import java.util.Collection;
 import java.util.List;
 
 public class IO extends Io_exceptionHandle {
@@ -51,7 +49,7 @@ public class IO extends Io_exceptionHandle {
                     source.createNewFile();
                 }
 
-                if(i != sourceString.size()){
+                if(i != sourceString.size()-1){
                     inFile.newLine();
                 }
                 inFile.flush();
@@ -81,7 +79,7 @@ public class IO extends Io_exceptionHandle {
             inFile = new FileReader(sourceFile);
 
             int i;
-            while((i = inFile.read()) != -1 ){
+            while((i =inFile.read()) != -1 ){
 
                 letter = (char) i;
                 testString.append(letter);
@@ -97,4 +95,60 @@ public class IO extends Io_exceptionHandle {
         }
         return testString.toString();
     }
+
+    public Collection<String> collectionTextLine(Collection<String> name, File source){
+
+
+        BufferedReader inFile = null;
+
+        try{
+
+            inFile = new BufferedReader(new FileReader(source));
+            String line;
+            while((line = inFile.readLine()) != null){
+
+                name.add(line);
+            }
+
+
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        finally{
+
+            closeAll(inFile);
+        }
+
+        return name;
+    }
+
+
+    public void bufferedStreamCopy(File source, File destination){
+
+
+        InputStream inFile = null;
+        OutputStream outFile = null;
+
+        try{
+
+            inFile = new FileInputStream(source);
+            outFile = new FileOutputStream(destination);
+
+            int index;
+            while((index = inFile.read()) != -1){
+
+                outFile.write(index);
+            }
+
+
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        finally{
+
+            closeAll(inFile);
+        }
+
+    }
+
 }

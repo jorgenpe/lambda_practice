@@ -2,6 +2,7 @@ package org.example;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -38,6 +39,20 @@ public class App
         name.add("Nova");
 
         ioTest.createTextLineFile(name);
+
+        File sources = new File("source/testTextLine.txt");
+        Collection<String> collectionName = new ArrayList<>();
+
+        collectionName = ioTest.collectionTextLine(collectionName,sources);
+
+        for(String m: collectionName){
+
+            System.out.println(m);
+        }
+
+        File destination = new File("destination/testText_copyOf.txt");
+
+        ioTest.bufferedStreamCopy(source,destination);
 
     }
 }

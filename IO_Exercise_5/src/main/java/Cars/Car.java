@@ -11,7 +11,7 @@ public class Car implements Serializable {
     private String brand;
     private transient int carId;
 
-    Car(){}
+    public Car(){}
 
     public String getCarReg() {
         return carReg;
@@ -43,6 +43,16 @@ public class Car implements Serializable {
 
     public void setCarId(int carId) {
         this.carId = carId;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "carReg='" + carReg + '\'' +
+                ", model='" + model + '\'' +
+                ", brand='" + brand + '\'' +
+                ", carId=" + carId +
+                '}';
     }
 
     @Override

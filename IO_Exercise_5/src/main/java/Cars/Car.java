@@ -1,5 +1,6 @@
 package Cars;
 
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -8,7 +9,7 @@ public class Car implements Serializable {
     private String carReg;
     private String model;
     private String brand;
-    private int carId;
+    private transient int carId;
 
     Car(){}
 
